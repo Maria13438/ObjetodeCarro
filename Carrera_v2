@@ -1,0 +1,61 @@
+public class Carrera_v2 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// Definimos un array con los ocho corredores
+		String[] corredores = { "Hicham El Guerrouj", "Noah Ngeny",
+				"Mohamed Farah", "Bernard Lagat", "Rashid Ramzi",
+				"Ryan Gregson", "Fermín Cacho", "Teddy Flack" };
+
+		// Instanciamos y lanzamos los ocho corredores, pero 50 veces
+
+		for (int n = 0; n < 50; n++) {
+			System.out.println("Iteración num. " + n);
+			System.out.println("--------------------");
+		
+			try {
+				
+				//En este caso, no usamos un bucle, ya que para diferenciar
+				//entre una iteración y la siguiente, tenemos que esperar
+				//a todos los hilos y, con el formato anterior, no funcionaría
+				
+				Thread t1 = new Thread(new Corredor(corredores[0]));
+				t1.start();
+				Thread t2 = new Thread(new Corredor(corredores[1]));
+				t2.start();
+				Thread t3 = new Thread(new Corredor(corredores[2]));
+				t3.start();
+				Thread t4 = new Thread(new Corredor(corredores[3]));
+				t4.start();
+				Thread t5 = new Thread(new Corredor(corredores[4]));
+				t5.start();
+				Thread t6 = new Thread(new Corredor(corredores[5]));
+				t6.start();
+				Thread t7 = new Thread(new Corredor(corredores[6]));
+				t7.start();
+				Thread t8 = new Thread(new Corredor(corredores[7]));
+				t8.start();
+				
+				t1.join();
+				t2.join();
+				t3.join();
+				t4.join();
+				t5.join();
+				t6.join();
+				t7.join();
+				t8.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// }
+			System.out.println("---------------------");
+		}
+
+	}
+
+}
